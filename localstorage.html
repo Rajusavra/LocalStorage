@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="id" />
+    <input type="text" id="category" />
+    <input type="text" id="brandName" />
+    <input type="text" id="price" />
+    <button onclick="submit()">Submit</button>
+
+    <script>
+
+
+        let products = [
+
+            // Mobile Items
+            {
+                id: 1,
+                category: "Mobiles",
+                type: "SmartPhone",
+                brandName: "Apple",
+                name: "14 Pro Max",
+                price: 154900,
+                color: ["natural", "Titanium white", "Titanium black"],
+                date: "2024-06-10"
+            },
+            {
+                id: 2,
+                category: "Mobiles",
+                type: "SmartPhone",
+                brandName: "Google",
+                name: "Pixel 8 Pro 5G",
+                price: 79999,
+                color: ["Obsidian Black", "Bay Blue", "Porcelain"],
+                date: "2024-06-12"
+            },
+            {
+                id: 3,
+                category: "Mobiles",
+                type: "SmartPhone",
+                brandName: "OnePlus",
+                name: "OnePlus 12 ",
+                price: 67999,
+                color: ["Flowy Emerald", " Silky Black"],
+                date: "2024-06-05"
+            },
+            {
+                id: 4,
+                category: "Mobiles",
+                type: "SmartPhone",
+                brandName: "IQ",
+                name: "iQOO Neo9 Pro ",
+                price: 38999,
+                color: ["Fiery Red", "Conqueror Black"],
+                date: "2024-06-15"
+            },
+            {
+                id: 5,
+                category: "Mobiles",
+                type: "SmartPhone",
+                brandName: "Xiaomi ",
+                name: "Xiaomi 14 Ultra ",
+                price: 99999,
+                color: ["Black", " White"],
+                date: "2024-06-14"
+            },
+
+            // Bags 
+
+            {
+                id: 6,
+                category: "Bags",
+                type: "Travel Backpack",
+                brandName: "TRAWOC",
+                name: "TRAWOC ALPHA 50 Litre Travel Backpack",
+                price: 1999,
+                color: ["black", "gray", "skyBlue"],
+                date: "2024-06-09"
+            },
+            {
+                id: 7,
+                category: "Bags",
+                type: "College Bag",
+                brandName: "Safari",
+                name: "Safari Omega spacious/large laptop backpack",
+                price: 1499,
+                color: ["black", "skyBlue"],
+                date: "2024-06-08"
+            },
+            {
+                id: 8,
+                category: "Bags",
+                type: "School Bag",
+                brandName: "Skybags",
+                name: "Skybags Printed School Backpack",
+                price: 899,
+                color: ["Blue", "Red"],
+                date: "2024-06-07"
+            },
+            {
+                id: 9,
+                category: "Bags",
+                type: "Office Bag",
+                brandName: "MOKOBARA",
+                name: "MOKOBARA The Transit Briefcase Vegan Leather & Nylon",
+                price: 5499,
+                color: ["Crypto", "Black", "Tailored Blue"],
+                date: "2024-06-06"
+            },
+            {
+                id: 10,
+                category: "Bags",
+                type: "Picnic Backpack",
+                brandName: "Safari",
+                name: "Safari Compact Size 15 Ltrs Standard Backpack",
+                price: 3199,
+                color: ["Black", "Tailored Blue"],
+                date: "2024-06-11"
+            },
+
+            // Sports Items
+
+            {
+                id: 11,
+                category: "Sports",
+                type: "Volleyball",
+                brandName: "Spartan",
+                name: "Spartan Star Volley League 2019 Volleyball",
+                price: 1789,
+                color: ["black", "white", "yellow"],
+                date: "2024-06-17"
+
+            },
+            {
+                id: 12,
+                category: "Sports",
+                type: "Cricket Bat",
+                brandName: "SG",
+                name: "SG Scorer Classic Kashmir Willow Cricket Bat",
+                price: 1789,
+                color: ["black"],
+                date: "2024-06-16"
+
+            },
+            {
+                id: 13,
+                category: "Sports",
+                type: "Boxing gloves",
+                brandName: "Amazon",
+                name: "Amazon Basics Boxing Gloves ",
+                price: 1089,
+                color: ["black", "Red"],
+                date: "2024-06-03"
+
+            },
+            {
+                id: 14,
+                category: "Sports",
+                type: "Hockey Stick",
+                brandName: "Liffo",
+                name: "Liffo® LX-1001 Solid Wooden Hockey Sticks",
+                price: 425,
+                color: ["black"],
+                date: "2024-06-04"
+
+            },
+            {
+                id: 15,
+                category: "Sports",
+                type: "Football",
+                brandName: "Vector",
+                name: "Vector X Bigwin Thermo Bounded Professional Play Football IZE: 5",
+                price: 425,
+                color: ["WHITE-SKY", "WHITE-RED", "WHITE-BLUE"],
+                date: "2024-06-18"
+
+            },
+
+            //  Fitness Items
+
+            {
+                id: 16,
+                category: "Fitness",
+                type: "HandGripper",
+                brandName: "UDKI",
+                name: "UDKI Hand Grip Strengthener with Resistance 10-100kg (V Shaped) with Counter",
+                price: 399,
+                color: ["black", "blue", "green"],
+                date: "2024-06-02"
+
+            },
+            {
+                id: 17,
+                category: "Fitness",
+                type: "Whey Protein",
+                brandName: "FUELONE",
+                name: "FUELONE Whey Max, Whey Protein",
+                price: 2299,
+                color: ["Chocolate"],
+                date: "2024-06-13"
+
+            },
+            {
+                id: 18,
+                category: "Fitness",
+                type: "Hex Dumbbells",
+                brandName: "Amazon",
+                name: "Amazon Brand - Symactive Rubber Coated Hex Dumbbells",
+                price: 3199,
+                color: ["Black", "Camouflage"],
+                date: "2024-06-01"
+            },
+            {
+                id: 19,
+                category: "Fitness",
+                type: "Ab Wheel Roller",
+                brandName: "Dekko",
+                name: "Dekko Ab Wheel Roller ",
+                price: 3199,
+                color: ["Black", "Blue"],
+                date: "2024-06-15"
+            },
+            {
+                id: 20,
+                category: "Fitness",
+                type: "Weight Lifting Belts",
+                brandName: "Boldfit",
+                name: "Boldfit Gym Belt Weight Lifting Belts",
+                price: 699,
+                color: ["Black", "Blue"],
+                date: "2024-06-12"
+            },
+
+            //  Men's Wear
+
+            {
+                id: 21,
+                category: "Men's Clothing",
+                Type: "T-shirt",
+                brandName: "Puma",
+                name: "Puma Men's Regular Fit T-Shirt",
+                price: 1799,
+                color: ["black", "gray", "Royal"],
+                date: "2024-06-10"
+
+            },
+            {
+                id: 22,
+                category: "Men's Clothing",
+                Type: "Tracksuits",
+                brandName: "Adidas",
+                name: "Adidas Men Tracksuits",
+                price: 2754,
+                color: ["black", "gray"],
+                date: "2024-06-11"
+
+            },
+            {
+                id: 23,
+                category: "Men's Clothing",
+                Type: "Head Caps",
+                brandName: "Boldfit",
+                name: "Boldfit Head Caps",
+                price: 499,
+                color: ["black", "gray", "yellow"],
+                date: "2024-06-09"
+
+            },
+            {
+                id: 24,
+                category: "Men's Clothing",
+                Type: "Full Sleeve Shirt",
+                brandName: "Peter England",
+                name: "Peter England Men's Solid Slim Fit Full Sleeve Shirt",
+                price: 999,
+                color: ["black", "Orange", "Maroon"],
+                date: "2024-06-20"
+
+            },
+            {
+                id: 25,
+                category: "Men's Clothing",
+                Type: "Stretch Knit Pants",
+                brandName: "Symbol Premium",
+                name: "Symbol Premium Men's Slim Fit Stretch Knit Pants - Smart Casual | Flexi Waist",
+                price: 1199,
+                color: ["black", "Mid-Navy", "Jet Grey"],
+                date: "2024-06-18"
+
+            },
+        ];
+
+        // console.log(products);
+
+        function submit() {
+            let id = document.getElementById("id").value;
+            let category = document.getElementById("category").value;
+            let brandName = document.getElementById("brandName").value;
+            let price = document.getElementById("price").value;
+
+            let product = {
+                id,
+                category,
+                brandName,
+                price,
+            };
+
+            console.log(product);
+
+            products.push(product);
+
+            console.log(products);
+
+            console.log(localStorage);
+
+            localStorage.setItem("products", JSON.stringify(products));
+
+            let result = JSON.parse(localStorage.getItem("products"));
+            console.log(result);
+
+            console.log(products);
+        }
+
+        //   let arr = [1, 2, 3, 4]; 
+
+        //   localStorage.setItem("data", JSON.stringify(arr));
+
+        //   let result = JSON.parse(localStorage.getItem("data"));
+        //   console.log(result);
+    </script>
+</body>
+
+</html>
